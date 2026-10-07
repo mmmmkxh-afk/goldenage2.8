@@ -1,0 +1,742 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>Golden Age Residential Care</title>
+  <style>
+    :root {
+      --g: #12382d;
+      --gold: #d8b35b;
+      --cream: #fbfaf5;
+      --ink: #14251f;
+      --muted: #61716b;
+    }
+    * {
+      box-sizing: border-box;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: var(--ink);
+      background: var(--cream);
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    .wrap {
+      max-width: 1120px;
+      margin: auto;
+      padding: 0 20px;
+    }
+    .hero {
+      color: #fff;
+      min-height: 630px;
+      background: linear-gradient(90deg, #061a17ed, #0a2d23a6, #081b2570),
+                  url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1900&q=85') center/cover;
+    }
+    .nav {
+      height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #ffffff2a;
+    }
+    .logo {
+      font-size: 19px;
+      font-weight: 800;
+    }
+    .logo span, .eyebrow {
+      color: #efd183;
+    }
+    .navlinks {
+      display: flex;
+      gap: 23px;
+      font-size: 14px;
+    }
+    .menu {
+      display: none;
+      font-size: 24px;
+    }
+    .hero-content {
+      max-width: 625px;
+      padding: 100px 0 65px;
+    }
+    .eyebrow {
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      font-weight: 800;
+    }
+    .hero h1 {
+      font-size: clamp(43px, 6.5vw, 69px);
+      line-height: .96;
+      letter-spacing: -3px;
+      margin: 14px 0 17px;
+    }
+    .hero h1 em {
+      font-style: normal;
+      color: #e9c76f;
+    }
+    .hero p {
+      font-size: 18px;
+      line-height: 1.5;
+      color: #e4ebe5;
+    }
+    .actions {
+      display: flex;
+      gap: 12px;
+      margin-top: 28px;
+      flex-wrap: wrap;
+    }
+    .btn {
+      border: 0;
+      display: inline-block;
+      padding: 15px 20px;
+      border-radius: 10px;
+      font-weight: 750;
+      font-size: 14px;
+      cursor: pointer;
+    }
+    .primary {
+      background: #d4ad52;
+      color: #17251d;
+    }
+    .secondary {
+      background: #ffffff1d;
+      border: 1px solid #fff6;
+      color: #fff;
+    }
+    .trust {
+      background: #092017;
+      color: #e3eee6;
+    }
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      padding: 20px 0;
+      font-size: 12px;
+      letter-spacing: .4px;
+    }
+    .trust b {
+      color: #e8c767;
+      margin-right: 7px;
+    }
+    .section {
+      padding: 70px 0;
+    }
+    .kicker {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      color: #987329;
+    }
+    .title {
+      font-size: 38px;
+      letter-spacing: -1.5px;
+      margin: 9px 0 13px;
+    }
+    .lead {
+      color: var(--muted);
+      line-height: 1.55;
+      max-width: 650px;
+      margin: 0 0 28px;
+    }
+    .homes {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 13px;
+    }
+    .home {
+      border-radius: 18px;
+      overflow: hidden;
+      min-height: 250px;
+      position: relative;
+      color: #fff;
+      box-shadow: 0 9px 23px #182c211c;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .home:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 28px #182c212e;
+    }
+    .photo {
+      position: absolute;
+      inset: 0;
+      background: center/cover;
+    }
+    .home:nth-child(1) .photo {
+      background-image: url('https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=650&q=80');
+    }
+    .home:nth-child(2) .photo {
+      background-image: url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=650&q=80');
+    }
+    .home:nth-child(3) .photo {
+      background-image: url('https://images.unsplash.com/photo-1600585152915-d208bec867a1?auto=format&fit=crop&w=650&q=80');
+    }
+    .home:nth-child(4) .photo {
+      background-image: url('https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?auto=format&fit=crop&w=650&q=80');
+    }
+    .home:nth-child(5) .photo {
+      background-image: url('https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=650&q=80');
+    }
+    .photo:after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(transparent 30%, #081710dc);
+    }
+    .home-info {
+      position: absolute;
+      bottom: 0;
+      padding: 15px;
+    }
+    .home-info b {
+      font-size: 20px;
+    }
+    .home-info small {
+      display: block;
+      margin-top: 5px;
+      color: #e6ebe5;
+    }
+    .badge {
+      position: absolute;
+      top: 13px;
+      left: 13px;
+      padding: 7px 9px;
+      background: #113529e6;
+      border: 1px solid #e5c46a88;
+      border-radius: 8px;
+      font-size: 10px;
+      color: #fde293;
+    }
+    .tour {
+      display: none;
+      margin-top: 26px;
+      padding: 25px;
+      border-radius: 21px;
+      background: #edf2eb;
+      border: 1px solid #d9e2d7;
+    }
+    .tour.show {
+      display: block;
+    }
+    .tour-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .tour h3 {
+      margin: 0;
+      font-size: 27px;
+    }
+    .tour p {
+      margin: 7px 0 17px;
+      color: var(--muted);
+    }
+    .room-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+    .room {
+      background: #fff;
+      border: 1px solid #d7e1d8;
+      border-radius: 15px;
+      padding: 20px;
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      font-weight: 750;
+    }
+    .room i {
+      font-style: normal;
+      font-size: 25px;
+      color: #8a6b2d;
+    }
+    .room small {
+      display: block;
+      color: #8c9a91;
+      font-weight: 500;
+      margin-top: 3px;
+    }
+    .access {
+      margin-top: 15px;
+      padding-top: 15px;
+      border-top: 1px solid #cdd8ce;
+      color: #39705c;
+      font-size: 13px;
+    }
+    .care {
+      background: #f0f4ee;
+    }
+    .care-grid, .reviews {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+    }
+    .care-card, .review {
+      background: #fff;
+      border: 1px solid #e1e8df;
+      border-radius: 16px;
+      padding: 22px;
+    }
+    .care-card i {
+      font-style: normal;
+      color: #b08a38;
+      font-size: 24px;
+    }
+    .care-card h3 {
+      margin: 13px 0 7px;
+    }
+    .care-card p, .review p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.45;
+    }
+    .split {
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 30px;
+      align-items: start;
+    }
+    .list {
+      display: grid;
+      gap: 10px;
+    }
+    .list div {
+      padding: 14px;
+      background: #fff;
+      border-left: 3px solid #d2af59;
+      border-radius: 8px;
+      color: #405149;
+    }
+    .booking {
+      border-radius: 20px;
+      background: #12382d;
+      color: #fff;
+      padding: 26px;
+    }
+    .booking h2 {
+      margin: 0 0 7px;
+      font-size: 29px;
+    }
+    .booking p {
+      color: #d5e0d9;
+      line-height: 1.45;
+    }
+    .form {
+      display: grid;
+      gap: 10px;
+      margin-top: 18px;
+    }
+    .form input, .form select, .form textarea {
+      width: 100%;
+      border: 1px solid #ffffff36;
+      border-radius: 9px;
+      padding: 13px;
+      background: #ffffff15;
+      color: #fff;
+      font: inherit;
+    }
+    .form option {
+      color: #111;
+    }
+    .form textarea {
+      height: 75px;
+    }
+    .form button {
+      background: #e0ba60;
+      color: #1a2a21;
+    }
+    .stars {
+      color: #d4ad52;
+      letter-spacing: 2px;
+    }
+    .review b {
+      font-size: 13px;
+      display: block;
+      margin-top: 13px;
+    }
+    .chat {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      width: 61px;
+      height: 61px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: #cba64e;
+      color: #17382a;
+      border: 2px solid #f7e09e;
+      box-shadow: 0 10px 27px #0007;
+      z-index: 5;
+      cursor: pointer;
+    }
+    .chat svg {
+      width: 29px;
+      height: 29px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .chat-dot {
+      position: absolute;
+      right: 2px;
+      top: 2px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #50d59e;
+      border: 2px solid #fff;
+    }
+    .chatbox {
+      display: none;
+      position: fixed;
+      right: 20px;
+      bottom: 95px;
+      width: min(350px, calc(100vw - 40px));
+      background: #fff;
+      border-radius: 19px;
+      box-shadow: 0 16px 48px #0005;
+      z-index: 5;
+      overflow: hidden;
+    }
+    .chatbox.show {
+      display: block;
+    }
+    .chathead {
+      background: #12382d;
+      color: #fff;
+      padding: 18px;
+    }
+    .chathead b {
+      font-size: 17px;
+    }
+    .chathead small {
+      display: block;
+      margin-top: 4px;
+      color: #d1e0d7;
+    }
+    .chatbody {
+      padding: 16px;
+    }
+    .chatbody p {
+      margin: 0 0 12px;
+      color: #53655c;
+      font-size: 14px;
+      line-height: 1.4;
+    }
+    .chatoption {
+      display: block;
+      width: 100%;
+      text-align: left;
+      padding: 14px;
+      margin-top: 9px;
+      background: #f2f5f0;
+      border: 1px solid #dce5da;
+      border-radius: 10px;
+      font: inherit;
+      font-weight: 700;
+      color: #173d30;
+      cursor: pointer;
+    }
+    .answer {
+      display: none;
+      margin-top: 12px;
+      padding: 12px;
+      border-radius: 9px;
+      background: #fff6d9;
+      color: #51431f;
+      font-size: 13px;
+      line-height: 1.45;
+    }
+    .answer.show {
+      display: block;
+    }
+    footer {
+      background: #071710;
+      color: #c4d0c7;
+      padding: 35px 0;
+      font-size: 13px;
+    }
+    footer b {
+      color: #e9cb74;
+      font-size: 17px;
+    }
+    @media (max-width: 760px) {
+      .navlinks {
+        display: none;
+      }
+      .menu {
+        display: block;
+      }
+      .hero {
+        min-height: 560px;
+      }
+      .hero-content {
+        padding: 71px 0 55px;
+      }
+      .trust-grid, .homes {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .home:last-child {
+        grid-column: span 2;
+      }
+      .care-grid, .reviews, .split, .room-grid {
+        grid-template-columns: 1fr;
+      }
+      .section {
+        padding: 52px 0;
+      }
+      .title {
+        font-size: 31px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="wrap">
+      <nav class="nav">
+        <div class="logo">Golden <span>Age</span> Residential Care</div>
+        <div class="navlinks">
+          <a href="#homes">Homes</a>
+          <a href="#care">Care Options</a>
+          <a href="#tour">Virtual Tours</a>
+          <a href="#book">Schedule a Viewing</a>
+        </div>
+        <div class="menu">☰</div>
+      </nav>
+      <div class="hero-content">
+        <div class="eyebrow">ASSISTED LIVING · MEMORY CARE · PHOENIX, ARIZONA</div>
+        <h1>Senior living that <em>feels like home.</em></h1>
+        <p>Explore our homes, care options, accessibility details, and virtual room previews—then schedule a personal viewing when you are ready.</p>
+        <div class="actions">
+          <a class="btn primary" href="#homes">Explore Our Homes</a>
+          <a class="btn secondary" href="#book">Schedule a Viewing</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="trust">
+    <div class="wrap trust-grid">
+      <div><b>✓</b>PERSONALIZED CARE</div>
+      <div><b>✓</b>24/7 SUPPORT</div>
+      <div><b>♿</b>ACCESSIBILITY DETAILS</div>
+      <div><b>◉</b>VIRTUAL HOME TOURS</div>
+    </div>
+  </div>
+
+  <main>
+    <section class="section" id="homes">
+      <div class="wrap">
+        <div class="kicker">OUR HOMES</div>
+        <h2 class="title">Find a place that feels right.</h2>
+        <p class="lead">Select a Golden Age home to view the sample room-tour concept and wheelchair-access checklist.</p>
+        <div class="homes" id="homeCards"></div>
+        <div class="tour" id="tour">
+          <div class="tour-top">
+            <h3 id="homeTitle">Legacy</h3>
+            <span class="badge" style="position:static">♿ ACCESSIBILITY DETAILS</span>
+          </div>
+          <p>View Room 1, the kitchen, or the living room as interactive 3D examples.</p>
+          <div class="room-grid">
+            <a class="room" target="_blank" rel="noopener noreferrer" href="https://sketchfab.com/3d-models/bedroom-interior-b1ce9248075441c2b74090a5e72435f2">
+              <i>⌂</i>
+              <span>Room 1<small>Open 3D preview ↗</small></span>
+            </a>
+            <a class="room" target="_blank" rel="noopener noreferrer" href="https://sketchfab.com/3d-models/modern-kitchen-82c35500aec347d2938ff7943900486f">
+              <i>⌑</i>
+              <span>Kitchen<small>Open 3D preview ↗</small></span>
+            </a>
+            <a class="room" target="_blank" rel="noopener noreferrer" href="https://sketchfab.com/3d-models/modern-living-room-ec7179648b1e43739104994d64e95673">
+              <i>▱</i>
+              <span>Living Room<small>Open 3D preview ↗</small></span>
+            </a>
+          </div>
+          <div class="access">✓ Step-free entrance · ✓ Door-width review · ✓ Accessible bathroom review · ✓ Parking / route details confirmed during tour</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section care" id="care">
+      <div class="wrap">
+        <div class="kicker">CARE THAT ADAPTS</div>
+        <h2 class="title">Support for every chapter.</h2>
+        <div class="care-grid">
+          <article class="care-card">
+            <i>♡</i>
+            <h3>Assisted Living</h3>
+            <p>Personalized help with daily living, meals, activities, and medication support in a home-like setting.</p>
+          </article>
+          <article class="care-card">
+            <i>✦</i>
+            <h3>Memory Care</h3>
+            <p>A secure, supportive approach for people living with dementia, Alzheimer’s, or memory loss.</p>
+          </article>
+          <article class="care-card">
+            <i>+</i>
+            <h3>Medication Management</h3>
+            <p>Trained staff support safe, consistent medication administration as medically required.</p>
+          </article>
+          <article class="care-card">
+            <i>☼</i>
+            <h3>Independent Living</h3>
+            <p>Community, comfort, and options that encourage independence and personal choice.</p>
+          </article>
+          <article class="care-card">
+            <i>◌</i>
+            <h3>Respite Care</h3>
+            <p>Short-term care options that give family caregivers time to rest and recharge.</p>
+          </article>
+          <article class="care-card">
+            <i>⌁</i>
+            <h3>Family Connection</h3>
+            <p>Clear communication and opportunities for families to stay connected with loved ones.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap split">
+        <div>
+          <div class="kicker">WHY GOLDEN AGE</div>
+          <h2 class="title">Care, comfort, and clear answers.</h2>
+          <p class="lead">The new site makes it easier for families to understand the home, services, and next step.</p>
+          <div class="list">
+            <div>Private or semi-private rooms in a home-like environment</div>
+            <div>Three home-prepared meals daily, including snacks and individual needs</div>
+            <div>Social activities, games, crafts, music, outings, and pet therapy</div>
+            <div>Family visits encouraged; personal room items welcome</div>
+          </div>
+        </div>
+        <section class="booking" id="book">
+          <div class="eyebrow">BOOK ONLINE</div>
+          <h2>Schedule a viewing.</h2>
+          <p>Choose a preferred time and we will contact you to confirm your visit.</p>
+          <form class="form" onsubmit="event.preventDefault();alert('Demo only — viewing request received.');">
+            <input placeholder="Your name" required>
+            <input type="email" placeholder="Email address" required>
+            <input placeholder="Phone number">
+            <select>
+              <option>Which home are you interested in?</option>
+              <option>Camino</option>
+              <option>Legacy</option>
+              <option>Highland</option>
+              <option>Frontier</option>
+              <option>Marley</option>
+            </select>
+            <select>
+              <option>Type of care needed</option>
+              <option>Assisted Living</option>
+              <option>Memory Care</option>
+              <option>Respite Care</option>
+              <option>General Information</option>
+            </select>
+            <textarea placeholder="Preferred day/time or a short note"></textarea>
+            <button class="btn">Request a Viewing</button>
+          </form>
+        </section>
+      </div>
+    </section>
+
+    <section class="section care">
+      <div class="wrap">
+        <div class="kicker">FAMILY FEEDBACK</div>
+        <h2 class="title">What families value most.</h2>
+        <div class="reviews">
+          <article class="review">
+            <div class="stars">★★★★★</div>
+            <p>“Personal attention, dignity, and respect made us feel our mother was truly cared for.”</p>
+            <b>Brad & Bert T.</b>
+          </article>
+          <article class="review">
+            <div class="stars">★★★★★</div>
+            <p>“Our family felt peace of mind knowing Mom was in a caring and safe environment.”</p>
+            <b>Randy B.</b>
+          </article>
+          <article class="review">
+            <div class="stars">★★★★★</div>
+            <p>“The care, music, food, and time together made it feel like a second family.”</p>
+            <b>Kathy G.</b>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="chatbox" id="chatbox">
+    <div class="chathead">
+      <b>Golden Age Assistant</b>
+      <small>How can we help today?</small>
+    </div>
+    <div class="chatbody">
+      <p>Choose an option to start. This is a demo chatbot—staff confirm all care, availability, and tour details.</p>
+      <button class="chatoption" onclick="reply('screen')">1. Care needs screening</button>
+      <button class="chatoption" onclick="reply('info')">2. General information</button>
+      <div class="answer" id="answer"></div>
+    </div>
+  </div>
+
+  <button class="chat" onclick="chatbox.classList.toggle('show')" aria-label="Open Golden Age chat">
+    <svg viewBox="0 0 24 24">
+      <path d="M20 11.5a7.5 7.5 0 0 1-7.8 7.5 8.6 8.6 0 0 1-3.4-.7L4 20l1.5-4.2A7.4 7.4 0 0 1 4.2 11 7.5 7.5 0 0 1 12 4a7.5 7.5 0 0 1 8 7.5Z"/>
+      <path d="M8 11.5h.01M12 11.5h.01M16 11.5h.01"/>
+    </svg>
+    <span class="chat-dot"></span>
+  </button>
+
+  <footer>
+    <div class="wrap">
+      <b>Golden Age Residential Care</b>
+      <p>Providing home-like assisted living, memory care, and supportive services for seniors and families.</p>
+      <p>Schedule a tour: (602) 439-7307 · Golden Age concept website demo</p>
+    </div>
+  </footer>
+
+  <script>
+    const homes = ['Camino', 'Legacy', 'Highland', 'Frontier', 'Marley'];
+    const homeCards = document.getElementById('homeCards');
+    const homeTitle = document.getElementById('homeTitle');
+    const tour = document.getElementById('tour');
+    const chatbox = document.getElementById('chatbox');
+    const answer = document.getElementById('answer');
+
+    homeCards.innerHTML = homes.map(n => `
+      <article class="home" onclick="showHome('${n}')">
+        <div class="photo"></div>
+        <span class="badge">3D TOUR</span>
+        <div class="home-info">
+          <b>${n}</b>
+          <small>Explore home & access details</small>
+        </div>
+      </article>
+    `).join('');
+
+    function showHome(n) {
+      homeTitle.textContent = n;
+      tour.classList.add('show');
+      setTimeout(() => tour.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 50);
+    }
+
+    function reply(type) {
+      answer.textContent = type === 'screen'
+        ? 'To help you start, we can ask about support needs, daily routines, mobility, and preferred location. This does not replace a medical assessment—our care team will follow up.'
+        : 'We can help with viewing hours, care options, meals, activities, room questions, medication management, and scheduling a tour. You can also call (602) 439-7307.';
+      answer.classList.add('show');
+    }
+  </script>
+</body>
+</html>
