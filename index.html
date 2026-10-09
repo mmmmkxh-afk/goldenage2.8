@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <title>Golden Age Residential Care</title>
+  <title>Residential Care & Assisted Living (Prototype)</title>
   <style>
     :root {
       --g: #12382d;
@@ -473,6 +473,70 @@
       color: #e9cb74;
       font-size: 17px;
     }
+    .badge-brand {
+      display: inline-block;
+      background: #000000;
+      color: #f5d147;
+      padding: 5px 14px;
+      border-radius: 999px;
+      font-weight: 800;
+      font-size: 14.5px;
+      letter-spacing: -0.2px;
+      vertical-align: middle;
+      margin-right: 6px;
+    }
+    .hero-prototype-notice {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      margin-top: 25px;
+      padding-bottom: 40px;
+      text-align: center;
+    }
+    .pill-group {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .pill-notice {
+      display: inline-flex;
+      align-items: center;
+      background: #000000;
+      color: #f5d147;
+      padding: 9px 22px;
+      border-radius: 999px;
+      font-size: 13.5px;
+      font-weight: 700;
+      letter-spacing: 0.2px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.45);
+      white-space: nowrap;
+    }
+    .pill-notice a {
+      color: #f5d147;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      transition: color 0.15s ease;
+    }
+    .pill-notice a:hover {
+      color: #ffffff;
+    }
+    .footer-contacts {
+      margin-top: 14px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 13.5px;
+      color: #e4ebe5;
+    }
+    .footer-contacts a {
+      color: #f5d147;
+      text-decoration: underline;
+    }
+    .footer-contacts a:hover {
+      color: #ffffff;
+    }
     @media (max-width: 760px) {
       .navlinks {
         display: none;
@@ -484,7 +548,17 @@
         min-height: 560px;
       }
       .hero-content {
-        padding: 71px 0 55px;
+        padding: 71px 0 35px;
+      }
+      .pill-notice {
+        white-space: normal;
+        text-align: center;
+        font-size: 12px;
+        padding: 8px 16px;
+      }
+      .footer-contacts {
+        flex-direction: column;
+        gap: 8px;
       }
       .trust-grid, .homes {
         grid-template-columns: repeat(2, 1fr);
@@ -508,7 +582,7 @@
   <header class="hero">
     <div class="wrap">
       <nav class="nav">
-        <div class="logo">Golden <span>Age</span> Residential Care</div>
+        <div class="logo"><span class="badge-brand">Your Company here</span> Residential Care</div>
         <div class="navlinks">
           <a href="#homes">Homes</a>
           <a href="#care">Care Options</a>
@@ -524,6 +598,20 @@
         <div class="actions">
           <a class="btn primary" href="#homes">Explore Our Homes</a>
           <a class="btn secondary" href="#book">Schedule a Viewing</a>
+        </div>
+      </div>
+      <div class="hero-prototype-notice">
+        <div class="pill-notice">This website is a prototype Only</div>
+        <div class="pill-group">
+          <div class="pill-notice">
+            email:&nbsp;<a href="mailto:brian.richardson65@yahoo.co.uk">brian.richardson65@yahoo.co.uk</a>
+          </div>
+          <div class="pill-notice">
+            WhatsApp:&nbsp;
+            <a href="https://wa.me/14487996740" target="_blank" rel="noopener noreferrer">+1 448 799 6740</a>&nbsp;&middot;&nbsp;
+            <a href="https://wa.me/447455025282" target="_blank" rel="noopener noreferrer">+44 7455 025282</a>&nbsp;&middot;&nbsp;
+            <a href="https://wa.me/639986457719" target="_blank" rel="noopener noreferrer">+63 998 645 7719</a>
+          </div>
         </div>
       </div>
     </div>
@@ -543,7 +631,7 @@
       <div class="wrap">
         <div class="kicker">OUR HOMES</div>
         <h2 class="title">Find a place that feels right.</h2>
-        <p class="lead">Select a Golden Age home to view the sample room-tour concept and wheelchair-access checklist.</p>
+        <p class="lead">Select a residential care home to view the sample room-tour concept and wheelchair-access checklist.</p>
         <div class="homes" id="homeCards"></div>
         <div class="tour" id="tour">
           <div class="tour-top">
@@ -612,7 +700,7 @@
     <section class="section">
       <div class="wrap split">
         <div>
-          <div class="kicker">WHY GOLDEN AGE</div>
+          <div class="kicker">WHY CHOOSE US</div>
           <h2 class="title">Care, comfort, and clear answers.</h2>
           <p class="lead">The new site makes it easier for families to understand the home, services, and next step.</p>
           <div class="list">
@@ -679,7 +767,7 @@
 
   <div class="chatbox" id="chatbox">
     <div class="chathead">
-      <b>Golden Age Assistant</b>
+      <b>Care Assistant</b>
       <small>How can we help today?</small>
     </div>
     <div class="chatbody">
@@ -690,7 +778,7 @@
     </div>
   </div>
 
-  <button class="chat" onclick="chatbox.classList.toggle('show')" aria-label="Open Golden Age chat">
+  <button class="chat" onclick="chatbox.classList.toggle('show')" aria-label="Open Care chat">
     <svg viewBox="0 0 24 24">
       <path d="M20 11.5a7.5 7.5 0 0 1-7.8 7.5 8.6 8.6 0 0 1-3.4-.7L4 20l1.5-4.2A7.4 7.4 0 0 1 4.2 11 7.5 7.5 0 0 1 12 4a7.5 7.5 0 0 1 8 7.5Z"/>
       <path d="M8 11.5h.01M12 11.5h.01M16 11.5h.01"/>
@@ -700,9 +788,19 @@
 
   <footer>
     <div class="wrap">
-      <b>Golden Age Residential Care</b>
+      <div style="margin-bottom: 12px;">
+        <span class="badge-brand">Your Company here</span>
+        <span style="font-weight: 700; color: #fff;">Residential Care</span>
+      </div>
       <p>Providing home-like assisted living, memory care, and supportive services for seniors and families.</p>
-      <p>Schedule a tour: (602) 439-7307 · Golden Age concept website demo</p>
+      <div class="footer-contacts">
+        <span>Email: <a href="mailto:brian.richardson65@yahoo.co.uk">brian.richardson65@yahoo.co.uk</a></span>
+        <span>WhatsApp: 
+          <a href="https://wa.me/14487996740" target="_blank" rel="noopener noreferrer">+1 448 799 6740</a> &middot; 
+          <a href="https://wa.me/447455025282" target="_blank" rel="noopener noreferrer">+44 7455 025282</a> &middot; 
+          <a href="https://wa.me/639986457719" target="_blank" rel="noopener noreferrer">+63 998 645 7719</a>
+        </span>
+      </div>
     </div>
   </footer>
 
@@ -734,7 +832,7 @@
     function reply(type) {
       answer.textContent = type === 'screen'
         ? 'To help you start, we can ask about support needs, daily routines, mobility, and preferred location. This does not replace a medical assessment—our care team will follow up.'
-        : 'We can help with viewing hours, care options, meals, activities, room questions, medication management, and scheduling a tour. You can also call (602) 439-7307.';
+        : 'We can help with viewing hours, care options, meals, activities, room questions, medication management, and scheduling a tour. You can also contact us via WhatsApp (+1 448 799 6740) or email brian.richardson65@yahoo.co.uk.';
       answer.classList.add('show');
     }
   </script>
